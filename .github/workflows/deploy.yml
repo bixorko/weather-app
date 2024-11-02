@@ -32,7 +32,9 @@ jobs:
         echo $DOCKER_TOKEN | docker login -u $DOCKER_USERNAME --password-stdin
 
     - name: Push Docker image
-      run: docker push weather-app:latest 
+      run: |
+        docker tag weather-app:latest bixor/weather-app:latest
+        docker push bixor/weather-app:latest
 
     - name: SSH to EC2 and deploy
       env:
