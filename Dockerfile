@@ -10,6 +10,12 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
+ARG WEATHER_API_KEY
+ARG GEMINI_API_KEY
+
+ENV WEATHER_API_KEY=${WEATHER_API_KEY}
+ENV GEMINI_API_KEY=${GEMINI_API_KEY}
+
 EXPOSE 5000
 
 ENV FLASK_APP=main.py
