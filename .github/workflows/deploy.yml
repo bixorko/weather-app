@@ -46,7 +46,7 @@ jobs:
         chmod 600 private_key.pem
         ssh -o StrictHostKeyChecking=no -i private_key.pem $EC2_USERNAME@$EC2_HOST << 'EOF'
           docker pull bixor/weather-app:latest
-          docker stop weather-app || true 
-          docker rm weather-app || true 
-          docker run -d --name weather-app -p 5000:5000 weather-app:latest 
+          docker stop bixor/weather-app:latest || true 
+          docker rm bixor/weather-app:latest || true 
+          docker run -d --name weather-app -p 5000:5000 bixor/weather-app:latest
         EOF
