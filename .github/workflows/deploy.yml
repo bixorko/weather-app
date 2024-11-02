@@ -22,7 +22,7 @@ jobs:
       run: |
         docker build --build-arg WEATHER_API_KEY=${{ secrets.WEATHER_API_KEY }} \
                      --build-arg GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }} \
-                     -t your-image-name:latest .
+                     -t weather-app:latest .
 
     - name: Login to Docker Hub
       env:
